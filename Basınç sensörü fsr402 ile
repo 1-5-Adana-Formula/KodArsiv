@@ -1,0 +1,27 @@
+const int fsr_pin = A0;
+int fsr_value;
+float voltage;
+float resistance;
+float pressure;
+
+void setup() {
+  Serial.begin(9600); 
+  pinMode(fsr_pin, INPUT);
+}
+void loop() {
+  fsr_value = analogRead(fsr_pin);
+  voltage = fsr_value * (5.0 / 1023.0);
+  if (fsr_value == 0) {
+    Serial.println("Pressure not detected.");
+  } else {
+    resistance = (5.0 - voltage) * 10000.0 / voltage; // FSR'nin direnci
+    pressure = pow(10, ((log10(resistance) - 6.0) / -0.5)); // Kuvveti hesapla
+    Serial.print("Analog value: ");
+    Serial.println(fsr_value);
+    Serial.print("Strength (N): ");
+    Serial.println(pressure, 2);
+  }
+  delay(500);
+}
+
+https://www.tinkercad.com/things/aMXskxG5bnG-basinc-sensoru/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard%2Fdesigns%2Fcircuits
