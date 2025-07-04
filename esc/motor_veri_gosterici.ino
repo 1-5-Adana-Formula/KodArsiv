@@ -2,22 +2,22 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SH110X.h>
 #include <math.h>
-// sh1107 ıcın ekran ayarları
+// sh1107 ıcın ekran ayarları,sh1107 ıcın ozellıstırılmıs ama farklı bır ekran ıcın degısıklık olabılır 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 #define OLED_RESET -1
 #define OLED_ADDRESS 0x3C
-//sh1107nın pın gırıslerı
+//sh1107nın pın gırıslerı,sh1107 ıcın ozellıstırılmıs ama farklı bır ekran ıcın degısıklık olabılır 
 #define I2C_SDA 0
 #define I2C_SCL 4
 
 Adafruit_SH1107 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 // bu pınler esc yı temsıl edıyor escden gelecek olan degerlere gore degısıklık olabılır
-#define POT_VOLT_PIN 34
-#define POT_AMP_PIN 35
-#define POT_RPM_PIN 32
-#define TEMP_PIN 33
+#define POT_VOLT_PIN 34 // bu esc den gelecek voltaj degerlerının pını,eger can bus ıle verı gelırse pınler yerıne id leri yazacgız
+#define POT_AMP_PIN 35 // bu esc den gelecek amper degerlerının pını,eger can bus ıle verı gelırse pınler yerıne id leri yazacagız
+#define POT_RPM_PIN 32// bu esc den gelecek rpm degerlerının pını,eger can bus ıle verı gelırse pınler yerıne id leri yazacagız
+#define TEMP_PIN 33// bu esc den gelecek sıcaklık degerlerının pını,eger can bus ıle verı gelırse pınler yerıne id leri yazacagız
 
 // Uyarı çıkışı (LED/Buzzer)
 #define Alert 2
@@ -31,7 +31,7 @@ Adafruit_SH1107 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define R0 10000.0        // 25°C'deki direnç 10k Ohm
 
 
-//sıcaklık ve akım ıcın kabuledılebılır max deger
+//sıcaklık ve akım ıcın kabuledılebılır max deger,bu degerler deneme ıcın konuldu duruma gore degısebılır
 int t_max=70;
 int c_max=20;
 
