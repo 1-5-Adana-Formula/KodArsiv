@@ -1,3 +1,4 @@
+/*esc den gelecek olan verılerın okunup arac ekranına gosterılıp akım ve sıcaklık degerlerınde kritik noktalarda alarm calması ıcın hazırlanmıs taslak esp32 kodu */
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SH110X.h>
